@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #gron-firkant {
+            background-color: green;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+        }
+
+        #rod-cirkel {
+            border-radius: 50%;
+            line-height: 100px;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="gron-firkant">
+    </div>
+
+    <div id="rod-cirkel">
+
+    </div>
+    <script>
+        let firkant = document.querySelector("#gron-firkant");
+        let cirkel = document.querySelector("#rod-cirkel");
+
+        document.addEventListener("DOMContentLoaded", start);
+        document.querySelector("#gron-firkant").addEventListener("click", klikHop);
+        document.querySelector("#rod-cirkel").addEventListener("click", stopHop);
+
+
+        function start() {
+            console.log("start");
+
+            firkant.textContent = "grøn firkant";
+            firkant.innerHTML = "<img src=frog.png>";
+
+
+
+            cirkel.textContent = "rød cirkel";
+            cirkel.innerHTML = "<img src=pig.png>";
+
+        }
+
+
+        function klikHop() {
+            console.log("klikHop");
+            firkant.innerHTML = "<img src=pig.png>";
+
+            cirkel.innerHTML = "<img src=frog.png>";
+            firkant.removeEventListener("click", klikHop);
+            firkant.addEventListener("click", klikHop2);
+
+
+        }
+
+        function klikHop2() {
+            console.log("klikHop2");
+
+            cirkel.innerHTML = "<img src=pig.png>";
+            firkant.innerHTML = "<img src=frog.png>";
+
+
+            firkant.removeEventListener("click", klikHop2);
+            firkant.addEventListener("click", klikHop);
+        }
+
+
+        function stopHop() {
+            console.log("stopHop");
+
+            document.querySelector("#gron-firkant").removeEventListener("click", klikHop);
+
+            document.querySelector("#gron-firkant").removeEventListener("click", klikHop2);
+
+        }
+
+    </script>
+</body>
+
+</html>

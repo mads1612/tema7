@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #gron-firkant {
+            background-color: green;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+        }
+
+        #rod-cirkel {
+            border-radius: 50%;
+            line-height: 200px;
+            width: 204px;
+            height: 200px;
+            text-align: center;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="gron-firkant">
+    </div>
+
+    <div id="rod-cirkel">
+
+    </div>
+    <script>
+        let fox
+
+        let firkant = document.querySelector("#gron-firkant");
+        firkant.textContent = "grøn firkant";
+        firkant.innerHTML = "<img src=frog.png>"
+
+
+
+        let cirkel = document.querySelector("#rod-cirkel");
+        cirkel.textContent = "rød cirkel";
+        cirkel.innerHTML = "<img src=pig.png> <img src=fox.png>";
+
+    </script>
+</body>
+
+</html>
