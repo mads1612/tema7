@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        img {
+            width: 30%;
+        }
+
+        .modtager {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(1fr);
+            max-width: 960px;
+            margin: 9 auto;
+        }
+
+        article {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <section class="modtager">
+
+        <template>
+            <article>
+                <h1></h1>
+                <img src="" alt="">
+
+                <p class="efternavn"></p>
+
+                <p class="email"></p>
+
+            </article>
+        </template>
+
+
+
+
+    </section>
+    <script>
+        const dyr = [{
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            },
+
+            {
+                "navn": "frø",
+                "type": "amfibie",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+
+                "levested": "sø"
+            },
+
+            {
+                "navn": "ræv",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+
+                "levested": "skov"
+            },
+
+
+            {
+                "navn": "sild",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/sild.jpg",
+
+                "levested": "havet"
+            },
+
+            {
+                "navn": "krokodile",
+                "type": "krybdyr",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+                "levested": "swamp"
+            },
+
+
+
+
+        ]
+
+        const modtagkloner = document.querySelector(".modtager");
+        const temp = document.querySelector("template");
+
+        dyr.forEach(dyr => {
+            const klon = temp.cloneNode(true).content;
+            klon.querySelector("h1").textContent = dyr.navn;
+            klon.querySelector(".efternavn").textContent = dyr.type;
+
+            klon.querySelector(".email").textContent = dyr.levested;
+            klon.querySelector("img").src = dyr.billede;
+            modtagkloner.appendChild(klon);
+
+        })
+    </script>
+</body></html>

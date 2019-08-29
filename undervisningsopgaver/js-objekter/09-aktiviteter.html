@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #txt {
+            margin: 5vw;
+        }
+
+
+        .modtager {
+            display: grid;
+            grid grid-gap: 30px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        article {
+            border: 1px solid black;
+
+        }
+
+        @media screen and (min-width:320px) {
+            .modtager {
+                grid-template-columns: repeat(1, 1fr)
+            }
+        }
+
+        @media screen and (min-width:600px) {
+            .modtager {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media screen and (min-width:1000px) {
+            .modtager {
+                grid-template-columns: repeat(3, 1fr)
+            }
+    </style>
+</head>
+
+1
+
+<body>
+    <section class="modtager">
+
+        <template>
+            <article>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <div id="txt">
+                    <h1></h1>
+                    <p class="efternavn"></p>
+
+                    <p class="email"></p>
+                </div>
+
+            </article>
+        </template>
+
+
+
+
+    </section>
+    <script>
+        let roskilde = [{
+                "overskrift": "Ældre er overrepræsenteret i cyklistulykker",
+                "tekst": "Når man har passeret pensionsalderen, er der rig mulighed for at leve et aktivt liv, hvilket mange seniorer heldigvis gør. Men desværre viser ulykkestallene, at alt for mange personer over 65 år også kommer til skade, når de bevæger sig rundt på cykel.",
+                "dato": "23. august 2019 --",
+
+                "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Cykelulykker-200x150.jpg",
+
+            },
+
+            {
+                "overskrift": "Oprydning efter skybrud kan være farligt",
+                "tekst": "Når vandet fosser ind i boligen eller virksomheden som følge af et skybrud, har de fleste mennesker kun én tanke i hovedet: at redde, hvad der reddes kan, og få det indtrængende vand stoppet i en pokkers fart.",
+                "dato": "23. august 2019 --",
+
+                "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/abw-regnvejr-paraply-200x150.jpg",
+
+            },
+
+            {
+                "overskrift": "Roskilde Byløb 2019",
+                "tekst": "Børneløbet blev skudt i gang kl. 18.00 og der var fart på de små ben! Dit Roskilde var et hurtigt smut forbi.",
+                "dato": "22. august 2019 --",
+
+                "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Roskilde-Byløb-børn-august-2019-abw-7-200x150.jpg",
+
+            },
+
+
+            {
+                "overskrift": "H.K.H. Kronprinsen åbner Naturens Dag 2019",
+                "tekst": "5. klasse fra Bramsnæsvigskolen får sved på panden, når de sammen med Hans Kongelige Højhed Kronprinsen skyder Naturens Dag i gang i det betagende landskab i Ejby Ådal ved Roskilde.",
+                "dato": "22. august 2019 --",
+
+                "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/kronprinsen2010_Territorium-200x150.jpg",
+
+            },
+
+            {
+                "overskrift": "Skandinavisk Lego finale kommer til Roskilde",
+                "tekst": "Skoleelever fra Danmark, Norge og Sverige dyster hvert år i november i den skandinaviske finale i First Lego League – verdens største teknologi- og projektturnering for 10-16 årige. Og i år kommer det til at foregå i Roskilde Kongrescenter Bauhaus Arena.",
+                "dato": "22. august 2019 --",
+
+                "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Lego_robot-200x150.jpg",
+
+            },
+
+        ]
+
+        const modtagkloner = document.querySelector(".modtager");
+        const temp = document.querySelector("template");
+
+        roskilde.forEach(event => {
+            const klon = temp.cloneNode(true).content;
+            klon.querySelector("h1").textContent = event.overskrift;
+            klon.querySelector(".efternavn").textContent = event.tekst;
+
+            klon.querySelector(".email").textContent = event.dato;
+            klon.querySelector("img").src = event.billede;
+            modtagkloner.appendChild(klon);
+
+        })
+    </script>
+</body></html>

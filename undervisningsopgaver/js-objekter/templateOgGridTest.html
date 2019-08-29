@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        img {
+            width: 100%;
+        }
+
+        .modtager {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(1fr);
+            max-width: 960px;
+            margin: 9 auto;
+        }
+
+        article {
+            border: 1px solid black;
+        }
+
+        article:nth-child(odd) {
+            background: blue;
+        }
+
+        @media screen and (min-width:600px) {
+            .modtager {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media screen and (min-width:1000px) {
+            .modtager {
+
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <section class="modtager">
+
+        <template>
+            <article>
+                <h1></h1>
+                <p class="efternavn"></p>
+
+                <p class="email"></p>
+
+                <img src="" alt="">
+            </article>
+        </template>
+
+
+
+
+    </section>
+    <script>
+        let personer = [{
+                "fornavn": "soren",
+                "efternavn": "skov",
+                "email": "madsiversen@gmail.com",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+
+            },
+
+            {
+                "fornavn": "mette",
+                "efternavn": "pedersen",
+                "email": "madsiversen@gmail.com",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+
+            },
+
+            {
+                "fornavn": "hans",
+                "efternavn": "jørgensen",
+                "email": "madsiversen@gmail.com",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+
+            },
+
+
+            {
+                "fornavn": "mark",
+                "efternavn": "hoved",
+                "email": "madsiversen@gmail.com",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+
+            },
+
+            {
+                "fornavn": "emil",
+                "efternavn": "hansen",
+                "email": "madsiversen@gmail.com",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+
+            },
+
+        ]
+
+        const modtagkloner = document.querySelector(".modtager");
+        const temp = document.querySelector("template");
+
+        personer.forEach(person => {
+            const klon = temp.cloneNode(true).content;
+            klon.querySelector("h1").textContent = person.fornavn;
+            klon.querySelector(".efternavn").textContent = person.efternavn;
+
+            klon.querySelector(".email").textContent = person.email;
+            klon.querySelector("img").src = person.billede;
+            modtagkloner.appendChild(klon);
+
+        })
+    </script>
+</body></html>
