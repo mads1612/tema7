@@ -14,7 +14,6 @@
         h1 {
             width: 70vw;
             margin: auto;
-            margin-bottom: 20px;
         }
 
         img {
@@ -27,6 +26,7 @@
 
         #modtager {
             width: 70vw;
+            min-height: 50vh;
             margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -36,6 +36,7 @@
 
         article {
             background-color: #e45642;
+            width: 21vw;
             padding: 20px;
             min-height: 40vh;
         }
@@ -46,9 +47,8 @@
 
         .menu {
             width: 70vw;
-
+            height: 10vh;
             margin: auto;
-            margin-bottom: 20px;
         }
 
         #top_logo {
@@ -59,27 +59,21 @@
 
 
 <body>
-    <header>
 
+    <header>
         <div id="top_logo">
             <img src="logo_disktop-04.png">
         </div>
-
     </header>
 
-
     <template id="theTemplate">
-
         <article class="rett">
-
             <img class="billede" src="" alt="" />
             <h2 class="overskrift" data-navn="navn"></h2>
             <p class="info" data-kort="kort"></p>
             <p class="pris" data-kort="pris"></p>
         </article>
     </template>
-
-
 
     <h1>Menu</h1>
 
@@ -98,8 +92,6 @@
         let retter;
         const modtagkloner = document.querySelector("#modtager");
         const temp = document.querySelector("#theTemplate");
-
-
         let filterKategori = "alle";
         document.addEventListener("DOMContentLoaded", getJson);
 
@@ -108,12 +100,10 @@
             retter = await jsonData.json();
             visRetter();
             addEventListenersToButtons();
-
         }
 
         function visRetter() {
             modtagkloner.innerHTML = "";
-
             retter.feed.entry.forEach(ret => {
                 if ((filterKategori == "alle" || filterKategori == ret.gsx$kategori.$t)) {
                     const klon = temp.cloneNode(true).content;
@@ -125,12 +115,8 @@
                     modtagkloner.appendChild(klon);
                     modtagkloner.lastElementChild.addEventListener("click", () => {
                         location.href = `bistro-single.html?overskrift=${ret.gsx$navn.$t}`;
-
-
                     });
-
                 }
-
             })
         }
 
